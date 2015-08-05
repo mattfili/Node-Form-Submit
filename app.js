@@ -2,6 +2,8 @@
 //npm requires
 var express = require('express')
 var bodyParser = require('body-parser')
+var morgan = require('morgan')
+
 
 //file requires
 var index = require('./routes/landing')
@@ -23,6 +25,16 @@ app.use('/', index)
 app.use('/contact', contact)
 app.use('/about', about)
 
+// middleware
+
+app.use(morgan('dev'));
+
+
+
+// app.use(function (req, res) {
+//   res.setHeader('Content-Type', 'text/plain')
+//   res.write('you posted:\n')
+// })
 
 
 
